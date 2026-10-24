@@ -2,8 +2,8 @@
 ; Alumno: Urtusuastigui Villaseñor Jose Luis 
 ; Horario: 8-9
 ; Docente: Dr José Luis Medina Jiménez
-; Práctica: 1-Ciclos Numericos 
-; Descripción: Programa que muestra el mensaje "Hola, mundo" varias veces al usar el ciclo
+; Práctica: 15-manipulacion de archivo
+; Descripción: Crea un archivo de texto llamado "Inventario.txt" y escribe en él la cadena "125" y valida que el proceso se realice sin errores.
 INCLUDE Irvine32.inc
 
 .data
