@@ -23,72 +23,72 @@ carros DWORD 0
 main PROC
 
 ciclo:
-    ; Mostrar ocupacion actual
+    ; Muestra en pantalla el total de carros actualmente estacionados utilizando la variable 'carros'
     mov edx, OFFSET msgOcupacion
     call WriteString
     mov eax, carros
     call WriteDec
     call Crlf
 
-    ; Verificar capacidad maxima
+    ; Compara la cantidad actual con el límite de 20; si es igual, salta al bloque que maneja el lleno total
     cmp carros, 20
     je lleno
 
-    ; Mostrar menu
+    ; Despliega visualmente las opciones del menú en la consola y lee la selección numérica del usuario (se guarda en EAX)
     mov edx, OFFSET msgMenu
     call WriteString
     call Crlf
-
     mov edx, OFFSET msgSalida
     call WriteString
     call Crlf
-
     mov edx, OFFSET msgOpcion
     call WriteString
     call ReadInt
 
+    ; Evalúa la opción ingresada: salta a 'entrada' si es 1, a 'salida' si es 2, o muestra error y repite el ciclo si es otra cosa
     cmp eax, 1
     je entrada
-
     cmp eax, 2
     je salida
-
     mov edx, OFFSET msgError
     call WriteString
     call Crlf
     jmp ciclo
 
 entrada:
+    ; Incrementa en 1 el contador de carros, imprime el mensaje de confirmación de entrada y vuelve al menú principal
     inc carros
-
     mov edx, OFFSET msgEntrada
     call WriteString
     call Crlf
     jmp ciclo
 
 salida:
+    ; Verifica que haya carros disponibles para salir; si no hay ninguno (es 0), salta al bloque de estacionamiento vacío
     cmp carros, 0
     je vacio
 
+    ; Decrementa en 1 el contador de carros, imprime la confirmación de salida y regresa al inicio del bucle
     dec carros
-
     mov edx, OFFSET msgSalio
     call WriteString
     call Crlf
     jmp ciclo
 
 vacio:
+    ; Imprime el aviso de que el lugar ya se encuentra sin vehículos y regresa automáticamente al menú
     mov edx, OFFSET msgVacio
     call WriteString
     call Crlf
     jmp ciclo
 
 lleno:
+    ; Imprime la advertencia de que el estacionamiento alcanzó su capacidad máxima y detiene la ejecución del programa
     mov edx, OFFSET msgLleno
     call WriteString
     call Crlf
-
     exit
 
 main ENDP
 END main
+
