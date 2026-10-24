@@ -51,7 +51,7 @@ Digito:
     call WriteHex
     call Crlf
 
-    ; Finaliza la ejecución del programa de forma segura
+    ; Finaliza la ejecución del programa 
     exit
 
 main ENDP
