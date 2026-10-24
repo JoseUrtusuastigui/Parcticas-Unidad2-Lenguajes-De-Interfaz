@@ -2,8 +2,8 @@
 ; Alumno: Urtusuastigui Villaseñor Jose Luis 
 ; Horario: 8-9
 ; Docente: Dr. José Luis Medina Jiménez
-; Práctica: 5-Condicionales
-; Descripción: se muestran los numeros del 1 al 100 utilizando un ciclo y una condicion.
+; Práctica: 7-Validacion de formato
+; Descripción: Valida si una cadena cumple estrictamente con el formato de tres letras, un guion y ocho números.
 INCLUDE Irvine32.inc
 
 .data
