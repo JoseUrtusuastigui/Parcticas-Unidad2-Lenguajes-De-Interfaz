@@ -66,7 +66,7 @@ bloqueado:
    jmp fin
 
 fin:
-   ; Finaliza la ejecución del programa de manera segura
+   ; Finaliza la ejecución del programa 
    exit
 
 main ENDP 
