@@ -2,7 +2,7 @@
 ; Alumno: Urtusuastigui Villaseñor Jose Luis 
 ; Horario: 8-9
 ; Docente: Dr José Luis Medina Jiménez
-; Práctica: Captura y despliegue de mensajes
+; Práctica: 2-Captura y despliegue de mensajes
 ; Descripción: Captura el nombre del usuario, lo muestra en pantalla y despliega la cantidad de caracteres.
 
 INCLUDE Irvine32.inc
