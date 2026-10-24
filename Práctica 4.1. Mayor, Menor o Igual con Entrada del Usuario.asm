@@ -44,16 +44,17 @@ main PROC
     jl menor
     je iguales
 
+;bloque de codigo que se ejecuta en caso de que sean iguales
 iguales:
     mov edx, OFFSET msgIguales
     call WriteString
     jmp fin
-
+;bloque de codigo que se ejecuta en caso de que el comparando sea mayor
 mayor:
     mov edx, OFFSET msgMayor
     call WriteString
     jmp fin
-
+;bloque de codigo que se ejecuta en caso de que el comparando sea menor
 menor:
     mov edx, OFFSET msgMenor
     call WriteString
