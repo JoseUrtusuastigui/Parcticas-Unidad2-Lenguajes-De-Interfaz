@@ -16,7 +16,7 @@ main PROC
   ; Ejecuta una instrucción de "No Operación" que consume un ciclo de reloj sin alterar nada
   nop
   
-  ; Finaliza la ejecución del programa de forma segura
+  ; Finaliza la ejecución del programa 
   exit
 main ENDP 
 
