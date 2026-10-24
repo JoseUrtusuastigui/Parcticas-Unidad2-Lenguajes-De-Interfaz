@@ -59,12 +59,6 @@ main PROC
    test EAX, 1
    call dumpRegs 
    
-   ;00000101b
-   ;-
-   ;00000001b
-   ;------------
-   ;00000001b
-
    mov eax, 0
    mov al, 10000000b
    test al, al
