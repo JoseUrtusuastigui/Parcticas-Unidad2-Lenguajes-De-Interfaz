@@ -35,7 +35,7 @@ main PROC
    call WriteString
    call crlf
 
-   ; Resta 1 al contador de intentos (EBX) y, si el contador llega a cero, salta al bloque de bloqueo
+   ; Resta 1 al contador de intentos y si el contador llega a cero, salta al bloque de bloqueo
    dec ebx
    jz bloqueado
 
