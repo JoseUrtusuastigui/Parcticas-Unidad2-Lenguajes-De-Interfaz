@@ -2,8 +2,8 @@
 ; Alumno: Urtusuastigui Villaseñor Jose Luis 
 ; Horario: 8-9
 ; Docente: Dr José Luis Medina Jiménez
-; Práctica: 1-Ciclos Numericos 
-; Descripción: Programa que muestra el mensaje "Hola, mundo" varias veces al usar el ciclo
+; Práctica: 11-Operaciones logicas
+; Descripción: Simula el control de estados de una computadora mediante operaciones lógicas a nivel de bits
 INCLUDE Irvine32.inc
 
 .code
