@@ -10,7 +10,7 @@ main PROC
   ; Carga el valor decimal 500 dentro del registro EAX
   mov eax, 500
 
-  ; Introduce el valor actual de EAX en el tope de la pila de memoria (Stack)
+  ; Introduce el valor actual de EAX en el tope de la pila de memoria 
   push eax 
   
   ; Ejecuta una instrucción de "No Operación" que consume un ciclo de reloj sin alterar nada
