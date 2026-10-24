@@ -2,8 +2,8 @@
 ; Alumno: Urtusuastigui Villaseñor Jose Luis 
 ; Horario: 8-9
 ; Docente: Dr José Luis Medina Jiménez
-; Práctica: 1-Ciclos Numericos 
-; Descripción: Programa que muestra el mensaje "Hola, mundo" varias veces al usar el ciclo
+; Práctica: Cadena con decimal
+; Descripción: Calcula y muestra estadísticas de descarga de un archivo de 1024 bytes.
 INCLUDE Irvine32.inc
 
 .data
