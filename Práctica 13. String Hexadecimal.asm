@@ -2,8 +2,8 @@
 ; Alumno: Urtusuastigui Villaseñor Jose Luis 
 ; Horario: 8-9
 ; Docente: Dr José Luis Medina Jiménez
-; Práctica: 1-Ciclos Numericos 
-; Descripción: Programa que muestra el mensaje "Hola, mundo" varias veces al usar el ciclo
+; Práctica: 13-String Hexadecimal
+; Descripción: Convierte una cadena de caracteres que representa un número hexadecimal en su valor numérico correspondiente.
 INCLUDE Irvine32.inc
 
 .data
