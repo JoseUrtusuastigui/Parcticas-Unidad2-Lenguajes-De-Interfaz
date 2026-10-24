@@ -2,8 +2,8 @@
 ; Alumno: Urtusuastigui Villaseñor Jose Luis 
 ; Horario: 8-9
 ; Docente: Dr. José Luis Medina Jiménez
-; Práctica: 5-Condicionales
-; Descripción: se muestran los numeros del 1 al 100 utilizando un ciclo y una condicion.
+; Práctica: 6-Control de ocupacion de un estacionamiento
+; Descripción: Gestiona el ingreso y salida de vehículos en un estacionamiento con capacidad máxima de 20 carros.
 INCLUDE Irvine32.inc
 
 .data
