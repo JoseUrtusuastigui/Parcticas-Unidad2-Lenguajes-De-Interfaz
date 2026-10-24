@@ -1,7 +1,7 @@
 # Practicas-U2-Lenguajes-de-Interfaz
 Datos generales
 Materia: Lenguajes de Interfaz
-Alumno: Fabian Alexis Camacho Oviedo
+Alumno: Urtusuastigui Villaseñor José Luis
 Institución: Instituto Tecnológico de Culiacán
 Unidad: 2
 Horario: 8-9 AM
