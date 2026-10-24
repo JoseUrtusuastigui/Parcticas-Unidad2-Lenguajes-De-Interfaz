@@ -16,35 +16,36 @@ msgSalir BYTE "Programa finalizado", 0
 main PROC
 
 ciclo:
-    ; Pedir un numero al usuario
+    ; Muestra el mensaje en pantalla y lee el número entero ingresado por el usuario (se guarda en EAX)
     mov edx, OFFSET msgNumero
     call WriteString
     call ReadInt
 
-    ; Comparar el numero con 0
+    ; Compara el número con 0 y decide a qué sección saltar según sea igual, mayor o menor
     cmp eax, 0
-
     je fin
     jg positivo
     jl negativo
 
 positivo:
+    ; Muestra el mensaje de positivo, da un salto de línea y regresa al inicio del bucle
     mov edx, OFFSET msgPositivo
     call WriteString
     call Crlf
     jmp ciclo
 
 negativo:
+    ; Muestra el mensaje de negativo, da un salto de línea y regresa al inicio del bucle
     mov edx, OFFSET msgNegativo
     call WriteString
     call Crlf
     jmp ciclo
 
 fin:
+    ; Muestra el mensaje de despedida, da un salto de línea y cierra el programa de forma segura
     mov edx, OFFSET msgSalir
     call WriteString
     call Crlf
-
     exit
 
 main ENDP
