@@ -17,50 +17,59 @@ INCLUDE Irvine32.inc
 
 .code
 main PROC
-   mov ebx, 3 ; NUMERO DE INTENTOS PARA INGRESAR
+   ; Inicializa el contador de intentos configurando el registro EBX en 3
+   mov ebx, 3 
 
   intentar:
-  mov edx, OFFSET msgPIN 
+   ; Muestra la solicitud en pantalla y lee el PIN numérico introducido por el usuario (se almacena en EAX)
+   mov edx, OFFSET msgPIN 
    call WriteString
    call ReadInt
 
+   ; Compara el PIN ingresado con la constante 'pinCorrecto' y, si coincide, salta al bloque de acceso concedido
    cmp eax, pinCorrecto
    je acceso
    
+   ; Muestra el mensaje de error en pantalla al no coincidir el PIN
    mov edx, OFFSET msgError
    call WriteString
    call crlf
 
+   ; Resta 1 al contador de intentos (EBX) y, si el contador llega a cero, salta al bloque de bloqueo
    dec ebx
-
    jz bloqueado
 
+   ; Muestra el texto de intentos restantes seguido del valor actual del contador convertido a texto
    mov edx, OFFSET msgIntentos
    call WriteString
-
    mov eax, ebx
    call WriteDec
    call crlf
 
+   ; Regresa de forma incondicional al inicio del bucle para solicitar el PIN otra vez
    jmp intentar
 
 
 acceso:
-mov edx, OFFSET msgAcceso
-call WriteString 
-call crlf
-jmp fin
+   ; Muestra el mensaje de éxito en pantalla y salta al final del programa
+   mov edx, OFFSET msgAcceso
+   call WriteString 
+   call crlf
+   jmp fin
 
 
 bloqueado:
-mov edx, OFFSET msgBloqueado
-call WriteString
-call crlf 
-jmp fin
+   ; Muestra el mensaje de cuenta bloqueada en pantalla y salta al final del programa
+   mov edx, OFFSET msgBloqueado
+   call WriteString
+   call crlf 
+   jmp fin
 
 fin:
-exit
+   ; Finaliza la ejecución del programa de manera segura
+   exit
 
 main ENDP 
 
-END main 
+END main
+
