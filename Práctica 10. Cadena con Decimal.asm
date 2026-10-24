@@ -2,7 +2,7 @@
 ; Alumno: Urtusuastigui Villaseñor Jose Luis 
 ; Horario: 8-9
 ; Docente: Dr José Luis Medina Jiménez
-; Práctica: Cadena con decimal
+; Práctica: 10-Cadena con decimal
 ; Descripción: Calcula y muestra estadísticas de descarga de un archivo de 1024 bytes.
 INCLUDE Irvine32.inc
 
