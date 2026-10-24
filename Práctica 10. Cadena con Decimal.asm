@@ -33,97 +33,85 @@ INCLUDE Irvine32.inc
 .code
 main PROC
 
-    ; BLOQUE 1: BYTES DESCARGADOS
+    ; Calcula los bytes descargados multiplicando 'bloques' por 'tamBloque' y guarda el resultado en 'descargados'
     mov eax, bloques
     mul tamBloque
     mov descargados, eax
 
-    ; BLOQUE 2: BYTES PENDIENTES
+    ; Calcula los bytes pendientes restando los bytes 'descargados' del total de 'tamArchivo'
     mov eax, tamArchivo
     sub eax, descargados
     mov pendientes, eax
 
-    ; BLOQUE 3: PORCENTAJE ENTERO
+    ; Calcula el porcentaje entero de avance multiplicando los bytes descargados por 100 y dividiendo entre el tamaño del archivo
     mov eax, descargados
     mov ebx, 100
     mul ebx
-
     mov ebx, tamArchivo
     div ebx
     mov porcentaje, eax
 
-    ; BLOQUE 4: GRUPOS DE 1024
+    ; Divide los bytes descargados entre 1024 para obtener la cantidad de grupos completos y el residuo sobrante 
     mov eax, descargados
     mov edx, 0
     mov ebx, 1024
     div ebx
-
     mov grupos, eax
     mov residuo, edx
 
-    ; MOSTRAR BYTES DESCARGADOS
+    ; Imprime la etiqueta de bytes descargados, convierte el valor numérico a texto usando el buffer y lo muestra en pantalla
     mov edx, OFFSET msg1
     call WriteString
-
     mov eax, descargados
     mov esi, OFFSET buffer
     call convertirDecimal
-
     mov edx, OFFSET buffer
     call WriteString
     call Crlf
 
-    ; MOSTRAR BYTES PENDIENTES
+    ; Imprime la etiqueta de bytes pendientes, convierte el valor numérico a texto usando el buffer y lo muestra en pantalla
     mov edx, OFFSET msg2
     call WriteString
-
     mov eax, pendientes
     mov esi, OFFSET buffer
     call convertirDecimal
-
     mov edx, OFFSET buffer
     call WriteString
     call Crlf
 
-    ; MOSTRAR PORCENTAJE
+    ; Imprime la etiqueta de porcentaje de avance, convierte el valor numérico a texto y le añade al final el símbolo "%"
     mov edx, OFFSET msg3
     call WriteString
-
     mov eax, porcentaje
     mov esi, OFFSET buffer
     call convertirDecimal
-
     mov edx, OFFSET buffer
     call WriteString
-
     mov edx, OFFSET simbolo
     call WriteString
     call Crlf
 
-    ; MOSTRAR GRUPOS COMPLETOS
+    ; Imprime la etiqueta de grupos completos de 1024, convierte el valor numérico a texto usando el buffer y lo muestra en pantalla
     mov edx, OFFSET msg4
     call WriteString
-
     mov eax, grupos
     mov esi, OFFSET buffer
     call convertirDecimal
-
     mov edx, OFFSET buffer
     call WriteString
     call Crlf
 
-    ; MOSTRAR RESIDUO
+    ; Imprime la etiqueta de residuo del agrupamiento, convierte el valor numérico a texto usando el buffer y lo muestra en pantalla
     mov edx, OFFSET msg5
     call WriteString
-
     mov eax, residuo
     mov esi, OFFSET buffer
     call convertirDecimal
-
     mov edx, OFFSET buffer
     call WriteString
     call Crlf
 
+    ; Finaliza la ejecución del programa de forma segura
     exit
 
 main ENDP
@@ -136,6 +124,7 @@ main ENDP
 
 convertirDecimal PROC
 
+    ; Resguarda el estado actual de todos los registros utilizados en la pila antes de iniciar la conversión
     push eax
     push ebx
     push ecx
@@ -143,59 +132,52 @@ convertirDecimal PROC
     push esi
     push edi
 
-    ; APUNTAR AL FINAL DEL BUFFER
+    ; Posiciona el puntero EDI al final del buffer y coloca un carácter nulo para terminar la cadena de texto
     mov edi, esi
     add edi, 10
-
-    ; TERMINADOR DE CADENA
     mov BYTE PTR [edi], 0
-
     mov ebx, 10
 
-    ; CASO ESPECIAL: NUMERO CERO
+    ; Evalúa si el número es cero; si es así, escribe directamente el carácter '0' en el buffer y salta a la fase de copia
     cmp eax, 0
     jne convertir
-
     dec edi
     mov BYTE PTR [edi], '0'
     jmp copiar
 
 convertir:
-    ; DIVIDIR ENTRE 10
+    ; Divide el valor de EAX entre 10 de forma sucesiva para aislar el último dígito en el registro de residuo 
     mov edx, 0
     div ebx
 
-    ; RESIDUO A ASCII
+    ; Convierte el dígito numérico a su representación en carácter ASCII sumándole '0' y lo almacena retrocediendo en el buffer
     add dl, '0'
-
-    ; GUARDAR DIGITO
     dec edi
     mov [edi], dl
 
-    ; REPETIR SI QUEDAN DIGITOS
+    ; Evalúa si aún quedan dígitos por procesar en EAX; si el cociente no es cero, repite el proceso de división
     cmp eax, 0
     jne convertir
 
 copiar:
-    ; COPIAR CADENA AL INICIO
+    ; Realiza un bucle para desplazar la cadena de caracteres generada desde su posición temporal (EDI) hacia el inicio del buffer (ESI)
     mov al, [edi]
     mov [esi], al
-
     inc edi
     inc esi
-
     cmp al, 0
     jne copiar
 
+    ; Restaura los valores originales de los registros desde la pila y regresa al punto de llamada del procedimiento
     pop edi
     pop esi
     pop edx
     pop ecx
     pop ebx
     pop eax
-
     ret
 
 convertirDecimal ENDP
 
 END main
+
