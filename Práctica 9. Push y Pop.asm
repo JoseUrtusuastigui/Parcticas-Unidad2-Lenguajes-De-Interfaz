@@ -1,0 +1,12 @@
+INCLUDE Irvine32.inc
+.code
+main PROC
+  mov eax, 500
+
+  push eax 
+  nop
+  
+   exit
+main ENDP 
+
+END main 
