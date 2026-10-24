@@ -2,8 +2,8 @@
 ; Alumno: Urtusuastigui Villaseñor Jose Luis 
 ; Horario: 8-9
 ; Docente: Dr José Luis Medina Jiménez
-; Práctica: 1-Ciclos Numericos 
-; Descripción: Programa que muestra el mensaje "Hola, mundo" varias veces al usar el ciclo
+; Práctica: 14-Captura y almacenamiento de dato numerico
+; Descripción: Actualiza el inventario sumando una cantidad de dispositivos ingresada por el usuario tras validar que se encuentre entre 1 y 99.
 INCLUDE Irvine32.inc
 
 .data
