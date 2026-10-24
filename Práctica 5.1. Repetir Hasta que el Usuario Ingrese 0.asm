@@ -2,8 +2,8 @@
 ; Alumno: Urtusuastigui Villaseñor Jose Luis 
 ; Horario: 8-9
 ; Docente: Dr. José Luis Medina Jiménez
-; Práctica: 5-Condicionales
-; Descripción: se muestran los numeros del 1 al 100 utilizando un ciclo y una condicion.
+; Práctica: 5.1-Repetir hasta que el usuario ingrese 0
+; Descripción: Evalúa si un número es positivo o negativo repetidamente hasta que el usuario ingresa 0
 INCLUDE Irvine32.inc
 
 .data
