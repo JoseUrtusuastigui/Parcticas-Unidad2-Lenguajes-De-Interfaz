@@ -2,8 +2,8 @@
 ; Alumno: Urtusuastigui Villaseñor Jose Luis 
 ; Horario: 8-9
 ; Docente: Dr. José Luis Medina Jiménez
-; Práctica: 5-Condicionales
-; Descripción: se muestran los numeros del 1 al 100 utilizando un ciclo y una condicion.
+; Práctica: 9-Push y Pop
+; Descripción: Guarda el valor decimal 500 en el registro EAX y lo introduce en el tope de la pila de memoria.
 INCLUDE Irvine32.inc
 .code
 main PROC
