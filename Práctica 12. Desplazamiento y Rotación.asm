@@ -2,8 +2,8 @@
 ; Alumno: Urtusuastigui Villaseñor Jose Luis 
 ; Horario: 8-9
 ; Docente: Dr José Luis Medina Jiménez
-; Práctica: 1-Ciclos Numericos 
-; Descripción: Programa que muestra el mensaje "Hola, mundo" varias veces al usar el ciclo
+; Práctica: 12-Desplazamiento y rotacion
+; Descripción: Ejecuta y muestra en consola diferentes operaciones de desplazamiento y rotación de bits
 INCLUDE Irvine32.inc
 
 .code
